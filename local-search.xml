@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Hexo使用</title>
+    <link href="/2021/07/05/manual-hexo/"/>
+    <url>/2021/07/05/manual-hexo/</url>
+    
+    <content type="html"><![CDATA[<p>记录一下hexo常用的一些命令</p><span id="more"></span><h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">hexo new [layout]&lt;<span class="hljs-built_in">title</span>&gt;<br></code></pre></td></tr></table></figure><p>新建一篇文章，如果没有指定<code>layout</code>的话，会默认使用_config.yml中的<code>default_layout</code>。直接写标题名字就好了，会自动生成一个以此为标题的md文件，如果有空格的话需要用引号括起来。</p><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs actionscript">hexo <span class="hljs-keyword">new</span> <span class="hljs-string">&quot;manual_hexo&quot;</span><br></code></pre></td></tr></table></figure><div class="table-container"><table><thead><tr><th>参数</th><th>描述</th></tr></thead><tbody><tr><td><code>-p</code>, <code>--path</code></td><td>自定义新文章的路径</td></tr><tr><td><code>r</code>, <code>--replace</code></td><td>如果存在同名文章，将其替换</td></tr><tr><td><code>-s</code>, <code>--slug</code></td><td>文章的Slug，作为新文章的文件名和发布后的URL</td></tr></tbody></table></div><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haxe">hexo <span class="hljs-keyword">new</span> <span class="hljs-type">page</span> --path about/me <span class="hljs-string">&quot;About me&quot;</span><br></code></pre></td></tr></table></figure><h2 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h2><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs verilog">hexo <span class="hljs-keyword">generate</span><br>简写为<br>hexo g<br></code></pre></td></tr></table></figure><p>生成静态文件</p><div class="table-container"><table><thead><tr><th>选项</th><th>描述</th></tr></thead><tbody><tr><td><code>-d</code>, <code>--deply</code></td><td>文件生成后立即部署网站</td></tr><tr><td><code>-w</code>, <code>--watch</code></td><td>监视文件变动</td></tr><tr><td><code>-b</code>, <code>--bail</code></td><td>生成过程中如果发生任何未处理的异常则抛出异常</td></tr><tr><td><code>-f</code>, <code>--force</code></td><td>强制重新生成文件。如果该参数的效果接近hexo clean &amp;&amp; hexo generate</td></tr><tr><td><code>-c</code>, <code>--concurrency</code></td><td>最大同时生成文件的数量，默认无限制</td></tr></tbody></table></div><h2 id="publish"><a href="#publish" class="headerlink" title="publish"></a>publish</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml">hexo publish [layout]<span class="hljs-tag">&lt;<span class="hljs-name">filename</span>&gt;</span><br></code></pre></td></tr></table></figure><p>发表草稿</p><h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs axapta">hexo <span class="hljs-keyword">server</span><br></code></pre></td></tr></table></figure><p>启动服务器。默认情况下，访问网址为：<code>http://localhost:4000</code></p><h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">hexo <span class="hljs-keyword">deploy</span><br>简写为<br>hexo d<br></code></pre></td></tr></table></figure><p>部署网站。</p><div class="table-container"><table><thead><tr><th>参数</th><th>描述</th></tr></thead><tbody><tr><td><code>-g</code>, <code>--generate</code></td><td>部署之前预先生成静态文件</td></tr></tbody></table></div>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>TrimTest</title>
+    <link href="/2021/07/05/TrimTest/"/>
+    <url>/2021/07/05/TrimTest/</url>
+    
+    <content type="html"><![CDATA[<p>记录一下怎么用递归实现java中String类的trim方法</p><p>以及做这个题的遇到一个问题</p><span id="more"></span><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StringInterviewTest</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        String s1 = <span class="hljs-string">&quot;   h e  &quot;</span>;<br>        String s1_trimed = trimTest(s1);<br><br>        System.out.println(s1);<br>        System.out.println(s1_trimed);<br><br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> String <span class="hljs-title">trimTest</span><span class="hljs-params">(String str)</span> </span>&#123;<br>        <span class="hljs-comment">// 模拟String自带的trim方法去除string首尾的空格</span><br><br>        <span class="hljs-keyword">if</span> ((str.charAt(<span class="hljs-number">0</span>) != <span class="hljs-string">&#x27; &#x27;</span> &amp;&amp; str.charAt(str.length()-<span class="hljs-number">1</span>) != <span class="hljs-string">&#x27; &#x27;</span>) || str.isEmpty() || str.isBlank()) &#123;<br>            <span class="hljs-keyword">return</span> str;<br>        &#125;<br>        str = (str.charAt(<span class="hljs-number">0</span>) == <span class="hljs-string">&#x27; &#x27;</span>) ? str.substring(<span class="hljs-number">1</span>) : str;<br>        str = (str.charAt(str.length()-<span class="hljs-number">1</span>) == <span class="hljs-string">&#x27; &#x27;</span>) ? str.substring(<span class="hljs-number">0</span>, str.length()-<span class="hljs-number">1</span>) : str;<br>        str = trimTest(str);<br>        <span class="hljs-keyword">return</span> str;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><p>重点在于倒数第4行</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">str = trimTest(str);<br><span class="hljs-comment">// trimTest(str);</span><br></code></pre></td></tr></table></figure><p>本来写的是注释里的内容，但是最后函数跑出来的结果是没有变的</p><p>想了想应该是因为java是值传递的，只使用trimTest(str)，改变了str的一个拷贝的值，然后递归一层一层的从出栈的时候结果就丢失掉了。</p><p>这也能解释为什么如果在前面加一句System.out.println(str)的话，能发现空格确实有在减少但是最后的结果却没有变化。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Computer Science</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+      <tag>Recursion</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>线性回归</title>
+    <link href="/2021/04/09/GLM/"/>
+    <url>/2021/04/09/GLM/</url>
+    
+    <content type="html"><![CDATA[<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a><strong>Overview</strong></h3><p>线性回归，是心理学中最常用的一种数据分析模型，在<em>t</em>检验，方差分析（ANOVA）或是协方差分析（ANCOVA）中都有体现。</p><p>在最简单的单一因变量（dependent varible），单一自变量（independent variable/ regressor）的情况下 ，例如包含n个数据点的X和Y。线性回归的目的就是找到一组参数，能够使得模型能够最好地拟合我们的实际结果（不过感觉话说回来，感觉这是所有parametric analysis的目的），在这个例子中，我们如果假设X和Y之间的关系是</p><script type="math/tex; mode=display">Y = \beta_0+\beta_1X+\epsilon</script><p>其中$\epsilon\sim N(0, \sigma^2I)$</p><p>我们的目标也就是找到对应的$\beta_0$，$\beta_1$，让$\hat Y= \hat\beta_0+\hat\beta_1X$和$Y$的差异最小。</p><h3 id="简单线性回归"><a href="#简单线性回归" class="headerlink" title="简单线性回归"></a><strong>简单线性回归</strong></h3><p>在上述的例子中，描述的就是一个简单线性回归的问题，解这类问题通常使用的方法是最小二乘法，也就是尽可能的降低$Y和\hat Y$之间差异，即残差<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="残差：residual，为观测值和预测值之间的差异。要注意和误差(error)，之间的不同点，误差是观测值和真实值之间的差异——这是由于经典测量理论(CTT)的基本假设认为，真实值等于观测值加上误差。">[1]</span></a></sup>的平方。残差用e表示，那么$\rm e = Y - \hat Y $。而$\sigma^2$的估计值为$\rm\sigma^2 = \dfrac{e’e}{n-2}$，其中n也就是数据点的数量。n-2是模型的自由度——数据点的个数（n）减去需要估计的参数的数量（$\beta_0和\beta_1$）</p><h3 id="多变量线性回归"><a href="#多变量线性回归" class="headerlink" title="多变量线性回归"></a><strong>多变量线性回归</strong></h3><p>在一个模型中可以有多个自变量，$X_1,\;X_2,\;…,\;X_p$，也即是，</p><script type="math/tex; mode=display">Y = \beta_0+\beta_1X_1+\beta_2X_2+...+\beta_pX_p+\epsilon</script><p>其中$\beta_i$的意义为当控制其他的自变量不变时，$X_i$改变一单位后$Y$的变化大小。$\epsilon\sim N(0, \sigma^2I)$</p><p>如果使用矩阵的表示方法的话，那么X和Y之间的关系可以表示为：</p><script type="math/tex; mode=display">Y = \mathbf{X\beta}+\epsilon</script><p>$\mathbf X$是个$n\times (p+1)$的矩阵，$\beta$是$p+1$的列向量</p><p>对$\beta$的估计可以通过对正则方程（normal equation）的求解而得到。即</p><script type="math/tex; mode=display">X'X=X'X\beta</script><p>$\beta$的估计值为$\hat\beta =(X’X)^{-1}X’Y$，假设$X’X$是可逆的</p><p>$\sigma^2$的估计值$\hat\sigma^2=\dfrac{\rm e’e}{n-(p+1)}$</p><p>为了保证$X’X$的可逆性，$X$必须是满秩的，即$X$的每一列都不是其他列的线性组合。</p><h3 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a><strong>假设检验</strong></h3><p>例如对于上述的模型来说，定义对照(contrast)的向量是一个长度为$p+1$的行向量。例如，假设有4个参数，$\beta_0,\;\beta_1,\;\beta_2,\;\beta_3$如果要检验的虚无假设为$H_0:\beta_1=0$，那么定义的对照c = [0 1 0 0]</p><section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>残差：residual，为观测值和预测值之间的差异。要注意和误差(error)，之间的不同点，误差是观测值和真实值之间的差异——这是由于经典测量理论(CTT)的基本假设认为，真实值等于观测值加上误差。<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>]]></content>
+    
+    
+    <categories>
+      
+      <category>知识</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据分析</tag>
+      
+      <tag>心理学</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
